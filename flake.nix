@@ -6,7 +6,7 @@
   };
 
   outputs = { self, nixpkgs }: {
-    defaultPackage.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.stdenv.mkDerivation {
+    devShells.aarch64-darwin.default = nixpkgs.legacyPackages.aarch64-darwin.mkShell {
       name = "test-environment";
       buildInputs = with nixpkgs.legacyPackages.aarch64-darwin; [
         (vscode-with-extensions.override {
@@ -16,6 +16,7 @@
         })
         docker
         iterm2
+        tree
       ];
     };
   };
