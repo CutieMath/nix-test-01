@@ -6,9 +6,9 @@
   };
 
   outputs = { self, nixpkgs }: {
-    defaultPackage.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.stdenv.mkDerivation {
+    defaultPackage.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.stdenv.mkDerivation {
       name = "test-environment";
-      buildInputs = with nixpkgs.legacyPackages.x86_64-darwin; [
+      buildInputs = with nixpkgs.legacyPackages.aarch64-darwin; [
         google-chrome
         (vscode-with-extensions.override {
           vscodeExtensions = with vscode-extensions; [
