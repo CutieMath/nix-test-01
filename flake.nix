@@ -12,7 +12,8 @@
         google-chrome
         (vscode-with-extensions.override {
           vscodeExtensions = with vscode-extensions; [
-            hashicorp.terraform
+            graphql.vscode-graphql
+            "4ops".terraform
           ];
         })
         docker
