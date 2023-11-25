@@ -6,21 +6,18 @@
   };
 
   outputs = { self, nixpkgs }: {
-    defaultPackage.x86_64-darwin = nixpkgs.legacyPackages.x86_64-darwin.stdenv.mkDerivation {
+    devShells.x86_64-darwin.default = nixpkgs.legacyPackages.x86_64-darwin.mkShell {
       name = "test-environment";
       buildInputs = with nixpkgs.legacyPackages.x86_64-darwin; [
         google-chrome
         (vscode-with-extensions.override {
           vscodeExtensions = with vscode-extensions; [
-            "4ops".terraform
             graphql.vscode-graphql
           ];
         })
         docker
         cypress
         iterm2
-        oh-my-zsh
-        caffeine-ng
       ];
     };
   };
